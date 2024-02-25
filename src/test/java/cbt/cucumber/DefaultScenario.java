@@ -28,7 +28,7 @@ public class DefaultScenario {
     private String Browser;
     private String username;
     private String password;
-    private String initialWait;
+    private long initialWait;
 
 
     @Before
@@ -39,7 +39,7 @@ public class DefaultScenario {
         Browser = System.getProperty("browser");
         username = System.getProperty("username");
         password = System.getProperty("password");
-        initialWait = System.getProperty("initialWait");
+        initialWait = Long.parseLong(System.getProperty("initialWait"));
         
         System.out.println("TargetURL ="+TargetURL);
         System.out.println("SeleniumGridURL ="+SeleniumGridURL);
