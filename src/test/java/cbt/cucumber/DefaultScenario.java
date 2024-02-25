@@ -52,6 +52,12 @@ public class DefaultScenario {
     	dc.setCapability(ChromeOptions.CAPABILITY, opt);
     	
         driver = new RemoteWebDriver(new URL(SeleniumGridURL), dc);
+        try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     @Given("I login as user")
