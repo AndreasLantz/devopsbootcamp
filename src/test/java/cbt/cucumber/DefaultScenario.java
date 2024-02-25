@@ -37,12 +37,14 @@ public class DefaultScenario {
         Browser = System.getProperty("browser");
         username = System.getProperty("username");
         password = System.getProperty("password");
+        initialWait = System.getProperty("initialWait");
         
         System.out.println("TargetURL ="+TargetURL);
         System.out.println("SeleniumGridURL ="+SeleniumGridURL);
         System.out.println("Browser ="+Browser);
         System.out.println("Username ="+username);
-        System.out.println("Password ="+password);        
+        System.out.println("Password ="+password);
+        System.out.println("Initial wait (ms) ="+initialWait);        
         
         ChromeOptions opt = new ChromeOptions();
         opt.addArguments("start-maximized");
@@ -53,7 +55,7 @@ public class DefaultScenario {
     	
         driver = new RemoteWebDriver(new URL(SeleniumGridURL), dc);
         try {
-			Thread.sleep(10000);
+			Thread.sleep(initialWait);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -121,18 +123,16 @@ public class DefaultScenario {
     @Then("The loyalty is {string}")
     public void the_loyalty_is(String string) {
 
-   	 String loyalty = driver.findElement(By.xpath("//*[@data-test-id='202212270748150344480']")).getText();
-   	 System.out.println("Loyalty :"+loyalty);
-   	 
- 	
-	 	 driver.findElement(By.xpath("//*[@data-test-id='20161017110917023176385']")).click(); // CONTINUE	
+   	String loyalty = driver.findElement(By.xpath("//*[@data-test-id='202212270748150344480']")).getText();
+    assertEquals("Platinum",loyalty);
+	driver.findElement(By.xpath("//*[@data-test-id='20161017110917023176385']")).click(); // CONTINUE	
     }
 
     @When("i provide refunder email {string}")
     public void i_provide_refunder_email(String string) {
 
 	 	new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-test-id='20161017110917023277518']")));
-	 	driver.findElement(By.xpath("//*[@data-test-id='202212271110320348301']")).sendKeys(string); // refounder email
+	 	driver.findElement(By.xpath("//*[@data-test-id='202212271110320348301']")).sendKeys(string); // refunder email
 	 	driver.findElement(By.xpath("//*[@data-test-id='20161017110917023277518']")).click(); // CONTINUE	
     }
 
