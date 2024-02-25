@@ -28,6 +28,8 @@ public class DefaultScenario {
     private String Browser;
     private String username;
     private String password;
+    private int initialWait;
+
 
     @Before
     public void setUp() throws Throwable {
