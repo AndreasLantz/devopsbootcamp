@@ -1,1 +1,0 @@
-echo 'Testscript is accessible'
