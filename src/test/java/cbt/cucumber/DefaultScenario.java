@@ -65,6 +65,13 @@ public class DefaultScenario {
     	
 	 	 driver.get(TargetURL);
 	 	 
+          try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	 	 if(TargetURL.contains("10.60.213.235")) {
 		 	 driver.findElement(By.id("details-button")).click();
 		 	 driver.findElement(By.id("proceed-link")).click();
