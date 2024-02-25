@@ -58,7 +58,6 @@ public class DefaultScenario {
 
     @Given("I open Google")
     public void I_open_Google() {
-         driver.findElement(By.id("L2AGLb")).click();
     	 try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
