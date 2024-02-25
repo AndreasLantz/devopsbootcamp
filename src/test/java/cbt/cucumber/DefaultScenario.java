@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BookingCancellation {
+public class DefaultScenario {
 
     private WebDriver driver;
     private String TargetURL;
