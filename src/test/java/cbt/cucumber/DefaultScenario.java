@@ -84,7 +84,7 @@ public class DefaultScenario {
 		}
 
         String result_prop = driver.findElement(By.id("result-stats")).getText();
-        assertTrue(result_prop.contains("Ungefär"));
+        assertTrue(result_prop.contains("About"));
 
     	 try {
 			Thread.sleep(1000);
