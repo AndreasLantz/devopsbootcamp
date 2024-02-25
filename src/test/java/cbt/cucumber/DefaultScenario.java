@@ -49,11 +49,9 @@ public class DefaultScenario {
         
     	DesiredCapabilities dc = new DesiredCapabilities();
     	dc.setBrowserName(Browser);
-    	dc.setPlatform(Platform.WIN11);
     	dc.setCapability(ChromeOptions.CAPABILITY, opt);
     	
         driver = new RemoteWebDriver(new URL(SeleniumGridURL), dc);
-
     }
     
     @Given("I login as user")
