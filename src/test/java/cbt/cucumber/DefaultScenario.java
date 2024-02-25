@@ -59,7 +59,7 @@ public class DefaultScenario {
     @Given("I open Google")
     public void I_open_Google() {
     	 try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,6 +75,13 @@ public class DefaultScenario {
         searchbar.clear();
         searchbar.sendKeys("cats");
         searchbar.sendKeys(Keys.RETURN);
+
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         String result_prop = driver.findElement(By.id("result-stats")).getText();
         assertTrue(result_prop.contains("Ungefär"));
