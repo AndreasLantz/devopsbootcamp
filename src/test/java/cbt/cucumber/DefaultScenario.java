@@ -64,43 +64,9 @@ public class DefaultScenario {
     public void i_login_as_user() {
     	
 	 	 driver.get(TargetURL);
-	 	 
-          try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-	 	 if(TargetURL.contains("10.60.213.235")) {
-		 	 driver.findElement(By.id("details-button")).click();
-		 	 driver.findElement(By.id("proceed-link")).click();
-	 	 }
-	 	 
    	  	 driver.findElement(By.id("txtUserID")).sendKeys(username); // USERNAME
 	 	 driver.findElement(By.id("txtPassword")).sendKeys(password); // PASSWORD
-	 	 driver.findElement(By.id("sub")).click(); // LOGIN
-
-    	 try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    
-    }
-    
-    @Given("I login with {string} and {string}")
-    public void i_login_with_and(String string, String string2) {
-    	
-	 	 driver.get(TargetURL);
-	 	 
-	 	 // Skip 
-	 	 driver.findElement(By.id("details-button")).click();
-	 	 driver.findElement(By.id("proceed-link")).click();
-	 	 
-   	  	 driver.findElement(By.id("txtUserID")).sendKeys(string); // USERNAME
-	 	 driver.findElement(By.id("txtPassword")).sendKeys(string2); // PASSWORD
 	 	 driver.findElement(By.id("sub")).click(); // LOGIN
 
     	 try {
@@ -122,7 +88,7 @@ public class DefaultScenario {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	 //new WebDriverWait(driver,Duration.ofSeconds(50)).until(ExpectedConditions.elementToBeClickable(By.xpath("//span[(text() = 'BookingCancellationDemo' or . = 'BookingCancellationDemo')]")));
+    	 new WebDriverWait(driver,Duration.ofSeconds(50)).until(ExpectedConditions.elementToBeClickable(By.xpath("//span[(text() = 'BookingCancellationDemo' or . = 'BookingCancellationDemo')]")));
 	 	 driver.findElement(By.xpath("//span[(text() = 'BookingCancellationDemo' or . = 'BookingCancellationDemo')]")).click(); // REFUND
 	 	 
     }
