@@ -1,6 +1,6 @@
 Feature: BookingCancellation
 
-  Scenario Outline: Refund Platium
+  Scenario: BookingCancellation
     Given I login as user
     When I create a new refund request
     And I select PNR "UP4231"
