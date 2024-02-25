@@ -28,7 +28,7 @@ public class DefaultScenario {
     private String Browser;
     private String username;
     private String password;
-    private int initialWait;
+    private String initialWait;
 
 
     @Before
