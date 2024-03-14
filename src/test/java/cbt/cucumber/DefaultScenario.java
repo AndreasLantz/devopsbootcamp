@@ -140,15 +140,17 @@ public class DefaultScenario {
 
     @Then("the case is sent for approval")
     public void the_case_is_sent_for_approval() {
-        
+        /*
    	 try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-   	 
-   	 assertEquals("PENDING-APPROVAL",driver.findElement(By.xpath("//*[@data-test-id='2016083016191602341167946']")).getText());
+	    */
+
+	new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-test-id='2016083016191602341167946']")));
+   	assertEquals("PENDING-APPROVAL",driver.findElement(By.xpath("//*[@data-test-id='2016083016191602341167946']")).getText());
         driver.close();
     }
     
